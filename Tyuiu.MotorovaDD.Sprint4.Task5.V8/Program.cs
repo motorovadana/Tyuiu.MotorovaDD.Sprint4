@@ -3,23 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Tyuiu.MotorovaDD.Sprint4.Task4.V24.Lib;
+using Tyuiu.MotorovaDD.Sprint4.Task5.V8.Lib;
 
-namespace Tyuiu.MotorovaDD.Sprint4.Task4.V24
+namespace Tyuiu.MotorovaDD.Sprint4.Task5.V8
 {
     class Program
     {
-        private static object ds;
-
         static void Main(string[] args)
         {
-            Console.Title = "Спринт #4| Выполнила :  Моторова Д.Д. | СМАРТб-23-1";
+            DataService ds = new DataService();
+            Random rnd = new Random();
+
+            Console.Title = "Спринт #4 | Выполнила: Моторова Д. Д. | СМАРТБ-23-1";
             Console.WriteLine("******************************************************************************");
             Console.WriteLine("* Спринт #4                                                                  *");
-            Console.WriteLine("* Тема:    Двумерные массивы. (ввод с клавиатуры)                            *");
+            Console.WriteLine("* Тема: Двумерные массивы. (генератор случайных чисел)                       *");
             Console.WriteLine("* Задание #5                                                                 *");
             Console.WriteLine("* Вариант #8                                                                 *");
-            Console.WriteLine("* Выполнил :  Моторова Дана Дмитриевна | СМАРТб-23-1                         *");        
+            Console.WriteLine("* Выполнила: Моторова Дана Дмитриевна | СМАРТБ-23-1                           *");
             Console.WriteLine("******************************************************************************");
             Console.WriteLine("* УСЛОВИЕ:                                                                   *");
             Console.WriteLine("* Дан двумерный целочисленный массив 5 на 5 элементов, заполненный случайными*");
@@ -42,7 +43,7 @@ namespace Tyuiu.MotorovaDD.Sprint4.Task4.V24
             {
                 for (int j = 0; j < columns; j++)
                 {
-                    mtrx[i, j] = rnd(-3, 5);
+                    mtrx[i, j] = rnd.Next(-3, 5);
                 }
             }
 
@@ -62,6 +63,8 @@ namespace Tyuiu.MotorovaDD.Sprint4.Task4.V24
             Console.WriteLine("* Массив в котором значения <0 заменены на 0:                                *");
             Console.WriteLine("******************************************************************************");
 
+            mtrx = ds.Calculate(mtrx);
+
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < columns; j++)
@@ -74,12 +77,6 @@ namespace Tyuiu.MotorovaDD.Sprint4.Task4.V24
 
             Console.ReadKey();
         }
-
-        private static int rnd(int v1, int v2)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
-        
-                  
+
